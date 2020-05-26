@@ -1,215 +1,257 @@
 <!DOCTYPE html>
 <html>
-  <head><meta charset=utf-8>
-    <meta name=viewport content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="imagetoolbar" content="no" />
+<head>
+  <meta charset=utf-8>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="imagetoolbar" content="no"/>
 
-    <title>rp.ly</title>
+  <title>rp.ly</title>
 
-    <link href=/file/app.f6299154743b22e4ec60751bc6631bb6.css rel=stylesheet>
-    <script type=text/javascript src=/file/manifest.2ae2e69a05c33dfc65f8.js></script>
-    <script type=text/javascript src=/file/vendor.0eb5480a7e9a156e90f2.js></script>
-    <script type=text/javascript src=/file/app.be9945027a8323d84e7d.js></script>
-    <!-- <script type=text/javascript src=/file/socket.io.js></script> -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/file/rply57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/file/rply72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/file/rply114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/file/rply144.png" />
-  </head>
-  <body>
+  <link href=/file/app.f6299154743b22e4ec60751bc6631bb6.css rel=stylesheet>
+  <script type=text/javascript src=/file/manifest.2ae2e69a05c33dfc65f8.js></script>
+  <script type=text/javascript src=/file/vendor.0eb5480a7e9a156e90f2.js></script>
+  <script type=text/javascript src=/file/app.be9945027a8323d84e7d.js></script>
+  <!-- <script type=text/javascript src=/file/socket.io.js></script> -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/file/rply57.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/file/rply72.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/file/rply114.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/file/rply144.png"/>
+</head>
+<body>
 
-    <div id="app"><router-view class="view"></router-view></div>
+<div id="app">
+  <router-view class="view"></router-view>
+</div>
 
-    <!-- pallette: 2b580c 639a67 d8ebb5 d9bf77 -->
-    <style id="style">
-      div.mint-cell-wrapper > div.mint-cell-value > input {
-        background-color: #eee;
-      }
-      .startbuttons {
-        margin: 15px;
-      }
-      .mint-header {
-        background-color: #2b580c;
-      }
-      #app {
-        margin:0;
-      }
-      .mint-button--primary {
-        background-color: #2b580c;
-      }
-      .mint-button--normal {
-        background-color: #d8ebb5;
-      }
-      .mint-button--default {
-        background-color: #d8ebb5;
-      }
-      .is-hidden {
-        display: none;
-      }
-      .file-upload .input-wrapper {
-        background-color: gray;
-      }
-      .img {
-        width:100%;
-        height:auto;
-      }
-      .contact {
-        list-style:none;
-        text-align:right;
-        margin-top:30px;
-      }
-      .contacts {
-        margin-top:15px;
-      }
-      .addcontact {
-        padding:10px;
-      }
-      .fieldlist div.mint-cell-wrapper > div.mint-cell-value > input {
-        background-color: #fff;
-      }
-      .caption {
-      }
-      .feedimg {
-        width:100%;
-        height:auto;
-        padding:0;
-        margin:0;
-      }
-      .cant-click{
-        pointer-events: none;
-      }
-      .oimg {
-          position:relative;
-          width:100%;
-          height:auto;
-          overflow:hidden;
-      }
-      .outer {
-          position:relative;
-          width:100%;
-          height:auto;
-          overflow:hidden;
-      }
-      .overlay {
-          display: none;
-      }
-      .text {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform:translate(-50%, -50%);
-          color:white;
-      }
-      .imagecell {
-        position:relative;
-        overflow:hidden;
-        padding:0;
-        margin:0;
-      }
-      .options {
-        padding-right:20px;
-      }
-      .vidframe {
-        margin:30px;
-      }
-      .groupimg {
-        width:300px;
-        height:auto;
-        padding:100px;
-        margin:0;
-      }
-      .hosted-field {
-        height: 50px;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 12px;
-        display: inline-block;
-        box-shadow: none;
-        font-weight: 500;
-        font-size: 14px;
-        border-radius: $radius-default;
-        border: 1px solid #dddddd;
-        line-height: 20px;
-        background: #fcfcfc;
-        margin-bottom: 12px;
-        background: linear-gradient(to right, white 50%, #fcfcfc 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        transition: all 300ms ease-in-out;
-      }
-      .hosted-fields--label {
-        font-family: courier, monospace;
-        text-transform: uppercase;
-        font-size: 14px;
-        display: block;
-        margin-bottom: 6px;
-      }
-      .button-container {
-        display: block;
-        text-align: center;
-      }
-      .braintree-hosted-fields-focused {
-        border: 1px solid #64d18a;
-        border-radius: $radius-default;
-        background-position: left bottom;
-      }
-      .braintree-hosted-fields-invalid {
-        border: 1px solid #ed574a;
-      }
-      .braintree-hosted-fields-valid {
-      }
-      #cardForm {
-        max-width: 50.75em;
-        margin: 0 auto;
-        padding: 1.875em;
-      }
-      .dropbox {
-        outline: 0;
-        outline-offset: -10px;
-        background: #d9bf77;
-        color: dimgray;
-        padding: 10px 10px;
-        position: relative;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-      .input-file {
-        opacity: 0;
-        width: 100%;
-        position: absolute;
-        cursor: pointer;
-      }
-      .dropbox:hover {
-        background: #AEA;
-      }
-      .img-thumbnail {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-        width: 150px;
-      }
-      .list-unstyled {
-        list-style:none;
-      }
-      .uploadlabel {
-        font-size: 1.4em;
-      }
-      #savepostbutton {
-        margin-top: 10px;
-        margin-bottom: 50px;
-      }
-      .bottom-button {
-        position: fixed;
-        bottom: 0;
-        height: 75px;
-        left: 0;
-      }
-    </style>
+<!-- pallette: 2b580c 639a67 d8ebb5 d9bf77 -->
+<style id="style">
+  div.mint-cell-wrapper > div.mint-cell-value > input {
+    background-color: #eee;
+  }
 
-    <script id="client">
+  .startbuttons {
+    margin: 15px;
+  }
 
-      const navigationFooter = `
+  .mint-header {
+    background-color: #2b580c;
+  }
+
+  #app {
+    margin: 0;
+  }
+
+  .mint-button--primary {
+    background-color: #2b580c;
+  }
+
+  .mint-button--normal {
+    background-color: #d8ebb5;
+  }
+
+  .mint-button--default {
+    background-color: #d8ebb5;
+  }
+
+  .is-hidden {
+    display: none;
+  }
+
+  .file-upload .input-wrapper {
+    background-color: gray;
+  }
+
+  .img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact {
+    list-style: none;
+    text-align: right;
+    margin-top: 30px;
+  }
+
+  .contacts {
+    margin-top: 15px;
+  }
+
+  .addcontact {
+    padding: 10px;
+  }
+
+  .fieldlist div.mint-cell-wrapper > div.mint-cell-value > input {
+    background-color: #fff;
+  }
+
+  .caption {
+  }
+
+  .feedimg {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cant-click {
+    pointer-events: none;
+  }
+
+  .oimg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .outer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  .imagecell {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  .options {
+    padding-right: 20px;
+  }
+
+  .vidframe {
+    margin: 30px;
+  }
+
+  .groupimg {
+    width: 300px;
+    height: auto;
+    padding: 100px;
+    margin: 0;
+  }
+
+  .hosted-field {
+    height: 50px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    display: inline-block;
+    box-shadow: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: $ radius-default;
+    border: 1px solid #dddddd;
+    line-height: 20px;
+    background: #fcfcfc;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, white 50%, #fcfcfc 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 300ms ease-in-out;
+  }
+
+  .hosted-fields--label {
+    font-family: courier, monospace;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .button-container {
+    display: block;
+    text-align: center;
+  }
+
+  .braintree-hosted-fields-focused {
+    border: 1px solid #64d18a;
+    border-radius: $ radius-default;
+    background-position: left bottom;
+  }
+
+  .braintree-hosted-fields-invalid {
+    border: 1px solid #ed574a;
+  }
+
+  .braintree-hosted-fields-valid {
+  }
+
+  #cardForm {
+    max-width: 50.75em;
+    margin: 0 auto;
+    padding: 1.875em;
+  }
+
+  .dropbox {
+    outline: 0;
+    outline-offset: -10px;
+    background: #d9bf77;
+    color: dimgray;
+    padding: 10px 10px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .input-file {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .dropbox:hover {
+    background: #AEA;
+  }
+
+  .img-thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  }
+
+  .list-unstyled {
+    list-style: none;
+  }
+
+  .uploadlabel {
+    font-size: 1.4em;
+  }
+
+  #savepostbutton {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  .bottom-button {
+    position: fixed;
+    bottom: 0;
+    height: 75px;
+    left: 0;
+  }
+</style>
+
+<script id="client">
+
+  const navigationFooter = `
             <mt-tabbar fixed="true" v-model="selected" v-bind:class="{'is-hidden':tabsHidden}">
               <mt-tab-item id="tab1">
                 <img slot="icon" src="/file/home.svg">
@@ -226,176 +268,176 @@
             </mt-tabbar>
 `
 
-      const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
+  const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
-      const freeTrial = {
-        data() {
-          return {
-            spinnerHidden : true,
-            email: '',
-            emailstatus: '',
-            sent : false,
-            phone : '',
-            inputhidden: true,
-            inputnamehidden: true,
-            code: '',
-            name:'',
-            loginHidden: true,
-            registerHidden: true,
-            sentcode: ''
+  const freeTrial = {
+    data() {
+      return {
+        spinnerHidden: true,
+        email: '',
+        emailstatus: '',
+        sent: false,
+        phone: '',
+        inputhidden: true,
+        inputnamehidden: true,
+        code: '',
+        name: '',
+        loginHidden: true,
+        registerHidden: true,
+        sentcode: ''
+      }
+    },
+    created() {
+    },
+    methods: {
+      doCode() {
+        this.spinnerHidden = false
+        Vue.http.post('freeTrialStart', {
+          code: this.code,
+          email: this.email,
+          phone: this.phone,
+          name: this.name
+        }).then((response) => {
+          if (response.body[0] == 'OK') {
+            window.location.href = '/'
+          } else {
+            alert('Sorry, the code did not match')
+            this.spinnerHidden = true
           }
-        },
-        created() {
-        },
-        methods: {
-          doCode() {
-            this.spinnerHidden = false
-            Vue.http.post( 'freeTrialStart', {
-              code : this.code,
-              email : this.email,
-              phone : this.phone,
+        })
+      },
+      validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email)
+      },
+      myLogin() {
+        if (this.email.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.email).toLowerCase())) {
+            this.emailstatus = 'success'
+            Vue.http.post('freeTrialLogin', {
+              email: this.email,
+              phone: this.phone,
               name: this.name
-            }).then( ( response ) => {
-              if (response.body[0] == 'OK') {
-                window.location.href = '/'
-              } else {
-                alert('Sorry, the code did not match')
-                this.spinnerHidden = true
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
               }
+              this.sent = true
+              this.inputhidden = false
+              this.sentcode = 'A code was just sent to your email address'
+              this.loginHidden = true
             })
-          },
-          validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email)
-          },
-          myLogin(){
-            if (this.email.indexOf('@') !== -1) {
-              var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (re.test(String(this.email).toLowerCase())) {
-                this.emailstatus = 'success'
-                Vue.http.post( 'freeTrialLogin', {
-                  email : this.email,
-                  phone : this.phone,
-                  name: this.name
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.sent = true
-                  this.inputhidden = false
-                  this.sentcode = 'A code was just sent to your email address'
-                  this.loginHidden = true
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            } else {
-              if (this.email.match(/\d/g).length===10) {
-                this.emailstatus = 'success'
-                this.phone = this.email
-                this.email = ''
-                Vue.http.post( 'freeTrialLogin', {
-                  email : this.email,
-                  phone : this.phone
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.inputhidden = false
-                  this.sent = true
-                  this.sentcode = 'A code was just sent to your phone'
-                  this.loginHidden = true
-                 /* MintUI.Toast({
-                    message: 'Check your text messages for a link!',
-                    iconClass: 'icon icon-success',
-                    duration: 10000
-                   })*/
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            }
-          },
-          doLogin(){
-            this.loginHidden = false
-            this.registerHidden = true
-          },
-          doRegister(){
-            this.loginHidden = true
-            this.registerHidden = false
-          },
-          doTrial(){
-            if (this.email.indexOf('@') !== -1) {
-              var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (re.test(String(this.email).toLowerCase())) {
-                this.emailstatus = 'success'
-                Vue.http.post( 'freeTrial', {
-                  email : this.email,
-                  phone : this.phone,
-                  name: this.name
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.sentcode = 'A code was just sent to your email address'
-                  this.registerHidden = true
-                  this.sent = true
-                  this.inputhidden = false
-                  this.inputnamehidden = false
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            } else {
-              if (this.email.match(/\d/g).length===10) {
-                this.emailstatus = 'success'
-                this.phone = this.email
-                this.email = ''
-                Vue.http.post( 'freeTrial', {
-                  email : this.email,
-                  phone : this.phone
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.sentcode = 'A code was just sent to your phone'
-                  this.registerHidden = true
-                  this.inputhidden = false
-                  this.inputnamehidden = false
-                  this.sent = true
-                 /* MintUI.Toast({
-                    message: 'Check your text messages for a link!',
-                    iconClass: 'icon icon-success',
-                    duration: 10000
-                   })*/
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            }
+          } else {
+            this.emailstatus = 'error'
           }
-        },
-        template: `
+        } else {
+          if (this.email.match(/\d/g).length === 10) {
+            this.emailstatus = 'success'
+            this.phone = this.email
+            this.email = ''
+            Vue.http.post('freeTrialLogin', {
+              email: this.email,
+              phone: this.phone
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
+              }
+              this.inputhidden = false
+              this.sent = true
+              this.sentcode = 'A code was just sent to your phone'
+              this.loginHidden = true
+              /* MintUI.Toast({
+                 message: 'Check your text messages for a link!',
+                 iconClass: 'icon icon-success',
+                 duration: 10000
+                })*/
+            })
+          } else {
+            this.emailstatus = 'error'
+          }
+        }
+      },
+      doLogin() {
+        this.loginHidden = false
+        this.registerHidden = true
+      },
+      doRegister() {
+        this.loginHidden = true
+        this.registerHidden = false
+      },
+      doTrial() {
+        if (this.email.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.email).toLowerCase())) {
+            this.emailstatus = 'success'
+            Vue.http.post('freeTrial', {
+              email: this.email,
+              phone: this.phone,
+              name: this.name
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
+              }
+              this.sentcode = 'A code was just sent to your email address'
+              this.registerHidden = true
+              this.sent = true
+              this.inputhidden = false
+              this.inputnamehidden = false
+            })
+          } else {
+            this.emailstatus = 'error'
+          }
+        } else {
+          if (this.email.match(/\d/g).length === 10) {
+            this.emailstatus = 'success'
+            this.phone = this.email
+            this.email = ''
+            Vue.http.post('freeTrial', {
+              email: this.email,
+              phone: this.phone
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
+              }
+              this.sentcode = 'A code was just sent to your phone'
+              this.registerHidden = true
+              this.inputhidden = false
+              this.inputnamehidden = false
+              this.sent = true
+              /* MintUI.Toast({
+                 message: 'Check your text messages for a link!',
+                 iconClass: 'icon icon-success',
+                 duration: 10000
+                })*/
+            })
+          } else {
+            this.emailstatus = 'error'
+          }
+        }
+      }
+    },
+    template: `
           <div>
             <mt-cell><h1>rp.ly</h1>&nbsp;&nbsp;&nbsp;&nbsp;<p>µblog</p></mt-cell>
             <mt-button type="default" class="startbuttons" v-on:click="doLogin()">Log In</mt-button><mt-button type="default" class="startbuttons" v-on:click="doRegister()">Register</mt-button>
@@ -409,50 +451,50 @@
             <mt-button v-bind:class="{'is-hidden':inputhidden}" v-on:click="doCode()" size="large">Submit Code</mt-button>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
             <div class="vid"></div></div>`
+  }
+  const connect = {
+    data() {
+      return {
+        code: '',
+        spinnerHidden: false,
+        sentcode: ''
       }
-      const connect = {
-        data() {
-          return {
-            code:'',
-            spinnerHidden:false,
-            sentcode: ''
+    },
+    props: {},
+    created() {
+      if (!(window.location.href.match(/\/g\//g) === null)) {
+        window.location.href = 'https://' + window.location.hostname + '/#/connect/' + this.$route.params.code
+        return
+      }
+      this.spinnerHidden = false
+      Vue.http.post('doConnect', {
+        code: this.$route.params.code
+      }).then((response) => {
+        if (response.body[0] == 'OK') {
+          window.location.href = '/'
+        } else {
+          this.sentcode = 'A code was just sent to your ' + response.body[0]
+        }
+        this.spinnerHidden = true
+      })
+    },
+    methods: {
+      doCode() {
+        this.spinnerHidden = false
+        Vue.http.post('doCode', {
+          code: this.code,
+          connect: this.$route.params.code
+        }).then((response) => {
+          if (response.body[0] == 'OK') {
+            window.location.href = '/'
+          } else {
+            alert('Sorry, the code did not match')
           }
-        },
-        props: {},
-        created() {
-          if (!(window.location.href.match(/\/g\//g) === null)) {
-            window.location.href = 'https://' + window.location.hostname + '/#/connect/' + this.$route.params.code
-            return
-          }
-          this.spinnerHidden = false
-          Vue.http.post( 'doConnect', {
-            code:this.$route.params.code
-          }).then( ( response ) => {
-            if (response.body[0] == 'OK') {
-              window.location.href = '/'
-            } else {
-              this.sentcode = 'A code was just sent to your ' + response.body[0]
-            }
-            this.spinnerHidden = true
-          })
-        },
-        methods: {
-          doCode() {
-            this.spinnerHidden = false
-            Vue.http.post( 'doCode', {
-              code:this.code,
-              connect:this.$route.params.code
-            }).then( ( response ) => {
-              if (response.body[0] == 'OK') {
-                window.location.href = '/'
-              } else {
-                alert('Sorry, the code did not match')
-              }
-              this.spinnerHidden = true
-            })
-          }
-        },
-        template: `
+          this.spinnerHidden = true
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="rp.ly">
             </mt-header>
@@ -461,210 +503,210 @@
             <mt-button v-on:click="doCode()" size="large">Submit Code</mt-button>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
           </div>`
+  }
+  const GroupPage = {
+    data() {
+      return {
+        grp: '',
+        spinnerHidden: false,
+        inviteText: ' invited you to join ',
+        submitText: '',
+        validName: '',
+        validContact: '',
+        newName: '',
+        newContact: '',
+        newEmail: '',
+        newPhone: '',
+        imgHidden: true,
+        groupPic: '',
+        signupHidden: false,
+        ownname: '',
+        grpname: '',
+        emailstatus: '',
+        docodehidden: true,
+        code: '',
+        signupBtnHidden: false
       }
-      const GroupPage = {
-        data() {
-          return {
-            grp:'',
-            spinnerHidden:false,
-            inviteText: ' invited you to join ',
-            submitText: '',
-            validName: '',
-            validContact: '',
-            newName:'',
-            newContact:'',
-            newEmail:'',
-            newPhone:'',
-            imgHidden: true,
-            groupPic: '',
-            signupHidden : false,
-            ownname: '',
-            grpname: '',
-            emailstatus : '',
-            docodehidden : true,
-            code: '',
-            signupBtnHidden : false
+    },
+    props: {},
+    created() {
+      this.spinnerHidden = false
+      Vue.http.post('joinGroup', {
+        grp: this.$route.params.grp
+      }).then((response) => {
+        if (response.body[3] == 'AUTHED') {
+          this.signupHidden = true
+          this.signupBtnHidden = false
+        } else {
+          this.signupHidden = false
+          this.signupBtnHidden = false
+        }
+        this.ownname = response.body[0]
+        this.grpname = response.body[1]
+        this.inviteText = response.body[0] + this.inviteText + response.body[1]
+        this.submitText = 'Join ' + response.body[0] + "'s Group"
+        this.groupPic = response.body[2]
+        this.imgHidden = false
+        this.spinnerHidden = true
+      })
+    },
+    methods: {
+      doCode() {
+        this.spinnerHidden = false
+        Vue.http.post('freeTrialStart', {
+          code: this.code,
+          grp: this.$route.params.grp,
+          name: this.newName,
+          email: this.newEmail,
+          phone: this.newPhone
+        }).then((response) => {
+          if (response.body[0] == 'OK') {
+            window.location.href = '/'
+          } else {
+            alert('Sorry, the code did not match')
           }
-        },
-        props: {},
-        created() {
-          this.spinnerHidden = false
-          Vue.http.post( 'joinGroup', {
-            grp:this.$route.params.grp
-          }).then( ( response ) => {
-            if (response.body[3] == 'AUTHED') {
-              this.signupHidden = true
-              this.signupBtnHidden = false
-            } else {
-              this.signupHidden = false
-              this.signupBtnHidden = false
-            }
-            this.ownname = response.body[0]
-            this.grpname = response.body[1]
-            this.inviteText = response.body[0] + this.inviteText + response.body[1]
-            this.submitText = 'Join ' + response.body[0] + "'s Group"
-            this.groupPic = response.body[2]
-            this.imgHidden = false
-            this.spinnerHidden = true
-          })
-        },
-        methods: {
-          doCode() {
-            this.spinnerHidden = false
-            Vue.http.post( 'freeTrialStart', {
-              code : this.code,
-              grp : this.$route.params.grp,
-              name : this.newName,
-              email : this.newEmail,
-              phone : this.newPhone
-            }).then( ( response ) => {
-              if (response.body[0] == 'OK') {
-                window.location.href = '/'
-              } else {
-                alert('Sorry, the code did not match')
-              }
+        })
+      },
+      doJoin() {
+        if (!this.signupHidden) {
+          if (this.validContact !== "success") {
+            MintUI.Toast({
+              message: 'Please enter a valid phone number or email address',
+              iconClass: 'icon icon-error',
+              duration: 2000
             })
-          },
-          doJoin() {
-            if (!this.signupHidden) {
-              if (this.validContact !== "success"){
-                MintUI.Toast({
-                  message: 'Please enter a valid phone number or email address',
-                  iconClass: 'icon icon-error',
-                  duration: 2000
-                })
-                return
-              }
-            }
-            if (!this.signupHidden) {
-              if (this.newContact.length == 0) {
-                MintUI.Toast({
-                  message: 'Please enter a phone number or email address',
-                  iconClass: 'icon icon-error',
-                  duration: 2000
-                })
-                return
-              }
-            }
-            if (!this.signupHidden) {
-              if (this.newName.length == 0) {
-                MintUI.Toast({
-                  message: 'Please enter your name',
-                  iconClass: 'icon icon-error',
-                  duration: 2000
-                })
-                return
-              }
-            }
-            this.spinnerHidden = false
-            this.inviteText = ''
-            this.docodehidden = false
-            if (this.signupHidden) {
-              Vue.http.post( 'doJoin', {
-                grp : this.$route.params.grp,
-                name : this.newName,
-                email : this.newEmail,
-                phone : this.newPhone
-              }).then( ( response ) => {
-                if (response.body[0] == 'error') {
-                  MintUI.Toast({
-                    message: 'Error',
-                    iconClass: 'icon icon-error',
-                    duration: 2000
-                  })
-                  return
-                }
-                MintUI.Toast({
-                  message: 'You have been added to the group',
-                  iconClass: 'icon icon-success',
-                  duration: 2000
-                })
-                this.spinnerHidden = true
-                router.push('/')
-              })
-            } else if (this.newEmail.indexOf('@') !== -1) {
-              var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (re.test(String(this.newEmail).toLowerCase())) {
-                this.emailstatus = 'success'
-                Vue.http.post( 'doJoin', {
-                  grp : this.$route.params.grp,
-                  name : this.newName,
-                  email : this.newEmail,
-                  phone : this.newPhone
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.inviteText = 'A code was just sent to your email address'
-                  this.spinnerHidden = true
-                  this.signupHidden = true
-                  this.signupBtnHidden = true
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            } else {
-              if (this.newEmail.match(/\d/g).length===10) {
-                this.emailstatus = 'success'
-                this.newPhone = this.newEmail
-                this.newEmail = ''
-                Vue.http.post( 'doJoin', {
-                  grp : this.$route.params.grp,
-                  name : this.newName,
-                  email : this.newEmail,
-                  phone : this.newPhone
-                }).then( ( response ) => {
-                  if (response.body[0] == 'error') {
-                    MintUI.Toast({
-                      message: 'Error',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                    return
-                  }
-                  this.inviteText = 'A code was just sent to your phone'
-                  this.spinnerHidden = true
-                })
-              } else {
-                this.emailstatus = 'error'
-              }
-            }
-          },
-          checkConName() {
-            this.validName = "success"
-          },
-          checkContact() {
-            this.newPhone = ''
-            this.newEmail = ''
-            this.validContact = ''
-            if (this.newContact.indexOf('@') !== -1) {
-              var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-              if (re.test(String(this.newContact).toLowerCase())) {
-                this.validContact = "success"
-                this.newEmail = this.newContact
-              } else {
-                this.validContact = "error"
-              }
-            } else {
-              if (this.newContact.substring(0, 2) == '+1') {
-                this.newContact = this.newContact.substring(2)
-              }
-              if (!(this.newContact.match(/\d/g) === null))
-                if (this.newContact.match(/\d/g).length===10) {
-                  this.validContact = "success"
-                  this.newPhone = this.newContact
-                } else {
-                  this.validContact = "error"
-                }
-            }
+            return
           }
-        },
-        template: `
+        }
+        if (!this.signupHidden) {
+          if (this.newContact.length == 0) {
+            MintUI.Toast({
+              message: 'Please enter a phone number or email address',
+              iconClass: 'icon icon-error',
+              duration: 2000
+            })
+            return
+          }
+        }
+        if (!this.signupHidden) {
+          if (this.newName.length == 0) {
+            MintUI.Toast({
+              message: 'Please enter your name',
+              iconClass: 'icon icon-error',
+              duration: 2000
+            })
+            return
+          }
+        }
+        this.spinnerHidden = false
+        this.inviteText = ''
+        this.docodehidden = false
+        if (this.signupHidden) {
+          Vue.http.post('doJoin', {
+            grp: this.$route.params.grp,
+            name: this.newName,
+            email: this.newEmail,
+            phone: this.newPhone
+          }).then((response) => {
+            if (response.body[0] == 'error') {
+              MintUI.Toast({
+                message: 'Error',
+                iconClass: 'icon icon-error',
+                duration: 2000
+              })
+              return
+            }
+            MintUI.Toast({
+              message: 'You have been added to the group',
+              iconClass: 'icon icon-success',
+              duration: 2000
+            })
+            this.spinnerHidden = true
+            router.push('/')
+          })
+        } else if (this.newEmail.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.newEmail).toLowerCase())) {
+            this.emailstatus = 'success'
+            Vue.http.post('doJoin', {
+              grp: this.$route.params.grp,
+              name: this.newName,
+              email: this.newEmail,
+              phone: this.newPhone
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
+              }
+              this.inviteText = 'A code was just sent to your email address'
+              this.spinnerHidden = true
+              this.signupHidden = true
+              this.signupBtnHidden = true
+            })
+          } else {
+            this.emailstatus = 'error'
+          }
+        } else {
+          if (this.newEmail.match(/\d/g).length === 10) {
+            this.emailstatus = 'success'
+            this.newPhone = this.newEmail
+            this.newEmail = ''
+            Vue.http.post('doJoin', {
+              grp: this.$route.params.grp,
+              name: this.newName,
+              email: this.newEmail,
+              phone: this.newPhone
+            }).then((response) => {
+              if (response.body[0] == 'error') {
+                MintUI.Toast({
+                  message: 'Error',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+                return
+              }
+              this.inviteText = 'A code was just sent to your phone'
+              this.spinnerHidden = true
+            })
+          } else {
+            this.emailstatus = 'error'
+          }
+        }
+      },
+      checkConName() {
+        this.validName = "success"
+      },
+      checkContact() {
+        this.newPhone = ''
+        this.newEmail = ''
+        this.validContact = ''
+        if (this.newContact.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.newContact).toLowerCase())) {
+            this.validContact = "success"
+            this.newEmail = this.newContact
+          } else {
+            this.validContact = "error"
+          }
+        } else {
+          if (this.newContact.substring(0, 2) == '+1') {
+            this.newContact = this.newContact.substring(2)
+          }
+          if (!(this.newContact.match(/\d/g) === null))
+            if (this.newContact.match(/\d/g).length === 10) {
+              this.validContact = "success"
+              this.newPhone = this.newContact
+            } else {
+              this.validContact = "error"
+            }
+        }
+      }
+    },
+    template: `
           <div>
             <mt-header title="rp.ly">
             </mt-header>
@@ -677,59 +719,59 @@
             <mt-button v-bind:class="{'is-hidden':docodehidden}" v-on:click="doCode()" size="large">Submit Code</mt-button>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
           </div>`
+  }
+  const listPosts = {
+    data() {
+      return {
+        spinnerHidden: true
       }
-      const listPosts = {
-        data() {
-          return {
-            spinnerHidden : true
-          }
-        },
-        props: { items : Array, editHidden: Boolean, cangrps : Array, moreHidden: Boolean, doSponsor: Object },
-        methods: {
-          created() {
-            if (this.items.length == 0) {
-              this.moreHidden = true
-            }
-          },
-          openImage(idx){
-            if (this.items[idx].isOwner) {
-              router.push( '/showPosts/' + idx )
-            }
-          },
-          showLink(){
-            this.$emit('on-show-menu')
-          },
-          delPosts( id, idx ){
-            this.spinnerHidden = false
-            Vue.http.post( 'delPosts', {
-              id:id
-            }).then( ( response ) => {
-              this.items.splice( idx, 1 )
-              this.spinnerHidden = true
-            })
-          },
-          imageLink(item){
-            if ("undefined" !== typeof item.media) {
-              return item.media
-            } else {
-              return 'myFile?field=image&name=' + item.image
-            }
-          },
-          doContextMenu(e){
-            e.preventDefault()
-          },
-          showMore(){
-            this.spinnerHidden = false
-            this.moreHidden = true
-            this.$emit('load-more-items')
-            this.spinnerHidden = true
-          },
-          showSponsor(grp) {
-            this.$emit('update:doSponsor', grp)
-            this.$emit('show-sponsor')
-          }
-        },
-        template: `
+    },
+    props: {items: Array, editHidden: Boolean, cangrps: Array, moreHidden: Boolean, doSponsor: Object},
+    methods: {
+      created() {
+        if (this.items.length == 0) {
+          this.moreHidden = true
+        }
+      },
+      openImage(idx) {
+        if (this.items[idx].isOwner) {
+          router.push('/showPosts/' + idx)
+        }
+      },
+      showLink() {
+        this.$emit('on-show-menu')
+      },
+      delPosts(id, idx) {
+        this.spinnerHidden = false
+        Vue.http.post('delPosts', {
+          id: id
+        }).then((response) => {
+          this.items.splice(idx, 1)
+          this.spinnerHidden = true
+        })
+      },
+      imageLink(item) {
+        if ("undefined" !== typeof item.media) {
+          return item.media
+        } else {
+          return 'myFile?field=image&name=' + item.image
+        }
+      },
+      doContextMenu(e) {
+        e.preventDefault()
+      },
+      showMore() {
+        this.spinnerHidden = false
+        this.moreHidden = true
+        this.$emit('load-more-items')
+        this.spinnerHidden = true
+      },
+      showSponsor(grp) {
+        this.$emit('update:doSponsor', grp)
+        this.$emit('show-sponsor')
+      }
+    },
+    template: `
           <div>
             <mt-header title="rp.ly">
               <a v-on:click="showLink()" slot="right">
@@ -752,72 +794,72 @@
             </mt-cell>
             <mt-cell v-for="grp in cangrps" :title="'Would you like to see every post by ' + grp.guser + ' in ' + grp.gname + '?'"><mt-button type="primary" size="small" v-on:click="showSponsor(grp)">Become a Sponsor</mt-button></mt-cell>
           </div>`
+  }
+  const showPosts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        idx: this.$route.params.idx,
+        id: 0,
+        title: '',
+        image: '',
+        sound: '',
+        soundHidden: false,
+        imageHidden: false
       }
-      const showPosts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            idx: this.$route.params.idx,
-            id : 0,
-            title : '',
-            image : '',
-            sound : '',
-            soundHidden : false,
-            imageHidden : false
-          }
-        },
-        props: { items : Array },
-        created() {
-          if (this.items.length == 0) {
-            this.$emit('on-update-list')
-            setTimeout( function (self) {
-              self.setData()
-            }, 2000, this)
-          } else {
-            this.setData()
-          }
-        },
-        methods: {
-          setData(){
-            this.id = this.items[ this.idx ].id
-            this.title = this.items[ this.idx ].title
-            this.image = this.items[ this.idx ].image
-            this.sound = this.items[ this.idx ].sound
-            if (this.sound == '') {
-              this.soundHidden = true
-            }
-            if (this.image == '') {
-              this.imageHidden = true
-            }
-            this.$emit('on-tabs-hidden')
-          },
-          delPosts(){
-            var showposts = this
-            MintUI.MessageBox({
-              title: 'Delete',
-              message: 'Are you sure you want to delete this post?',
-              showCancelButton: true,
-              confirmButtonText: 'Confirm Delete',
-              cancelButtonText: 'Cancel'
-            }).then(action => {
-              if (action === 'confirm') {
-                showposts.spinnerHidden = false
-                Vue.http.post( 'delPosts', {
-                  id:showposts.id
-                }).then( ( response ) => {
-                  showposts.spinnerHidden = true
-                  showposts.items.splice( showposts.idx, 1 )
-                  router.push('/')
-                })
-              }
+    },
+    props: {items: Array},
+    created() {
+      if (this.items.length == 0) {
+        this.$emit('on-update-list')
+        setTimeout(function (self) {
+          self.setData()
+        }, 2000, this)
+      } else {
+        this.setData()
+      }
+    },
+    methods: {
+      setData() {
+        this.id = this.items[this.idx].id
+        this.title = this.items[this.idx].title
+        this.image = this.items[this.idx].image
+        this.sound = this.items[this.idx].sound
+        if (this.sound == '') {
+          this.soundHidden = true
+        }
+        if (this.image == '') {
+          this.imageHidden = true
+        }
+        this.$emit('on-tabs-hidden')
+      },
+      delPosts() {
+        var showposts = this
+        MintUI.MessageBox({
+          title: 'Delete',
+          message: 'Are you sure you want to delete this post?',
+          showCancelButton: true,
+          confirmButtonText: 'Confirm Delete',
+          cancelButtonText: 'Cancel'
+        }).then(action => {
+          if (action === 'confirm') {
+            showposts.spinnerHidden = false
+            Vue.http.post('delPosts', {
+              id: showposts.id
+            }).then((response) => {
+              showposts.spinnerHidden = true
+              showposts.items.splice(showposts.idx, 1)
+              router.push('/')
             })
-
-          },
-          doContextMenu(e){
-            e.preventDefault()
           }
-        },
-        template: `
+        })
+
+      },
+      doContextMenu(e) {
+        e.preventDefault()
+      }
+    },
+    template: `
           <div>
             <mt-header title="rp.ly">
               <router-link to="/" slot="left">
@@ -838,48 +880,48 @@
             <mt-button size="large" v-on:click="delPosts()">Delete Photo</mt-button>
 
           </div>`
+  }
+  const modPosts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadFile',
+        idx: this.$route.params.idx,
+        id: 0,
+        title: '',
+        image: '',
+        sound: ''
       }
-      const modPosts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadFile',
-            idx: this.$route.params.idx,
-            id : 0,
-            title : '',
-            image : '',
-            sound : ''
-          }
-        },
-        props: { items : Array },
-        created() {
-          this.id = this.items[ this.idx ].id
-          this.title = this.items[ this.idx ].title
-          this.image = this.items[ this.idx ].image
-          this.sound = this.items[ this.idx ].sound
+    },
+    props: {items: Array},
+    created() {
+      this.id = this.items[this.idx].id
+      this.title = this.items[this.idx].title
+      this.image = this.items[this.idx].image
+      this.sound = this.items[this.idx].sound
 
-          this.$emit('on-tabs-hidden')
-        },
-        methods: {
-          modPosts(){
-            this.spinnerHidden = false
-            Vue.http.post( 'modPosts', {
-              id : this.id,
-              title : this.title
-            }).then( ( response ) => {
-              this.$emit('on-update-list')
-              router.push( '/' )
-            })
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
-              }
-            })
+      this.$emit('on-tabs-hidden')
+    },
+    methods: {
+      modPosts() {
+        this.spinnerHidden = false
+        Vue.http.post('modPosts', {
+          id: this.id,
+          title: this.title
+        }).then((response) => {
+          this.$emit('on-update-list')
+          router.push('/')
+        })
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
           }
-        },
-        template: `
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="rp.ly">
               <router-link :to="'/showPosts/' + idx" slot="left">
@@ -894,592 +936,597 @@
             <audio-recorder :upload-url="uploadTo + '&field=sound'"/>
             <mt-button v-on:click="modPosts()" size="large">Save</mt-button>
           </div>`
+  }
+  const Posts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadMulti',
+        selected: 'tab1',
+        items: [],
+        tabsHidden: false,
+        groups: [],
+        abilities: [],
+        editHidden: true,
+        groupsHidden: false,
+        postto: [],
+        comet: '',
+        title: '',
+        image: '',
+        cgroups: [{id: 1, user_id: 1, name: 'Admins', perms: [], members: []}, {
+          id: 2,
+          user_id: 1,
+          name: 'Group 2',
+          perms: [],
+          members: []
+        }, {id: 3, user_id: 1, name: 'Group 3', perms: [], members: []}],
+        contacts: [{id: 1, user_id: 1, name: 'Me', email: '', phone: '', groups: [1, 2, 3]}],
+        lastgroups: [],
+        saveHidden: false,
+        uploadHidden: false,
+        imgHidden: true,
+        linkVisible: false,
+        feedsVisible: false,
+        feedLink: '',
+        addFeed: '',
+        feeds: [],
+        textHidden: false,
+        audioHidden: false,
+        showAddContact: false,
+        validName: '',
+        validContact: '',
+        newName: '',
+        newContact: '',
+        newEmail: '',
+        newPhone: '',
+        doExpire: true,
+        expireHours: '24',
+        optionsBtnHidden: false,
+        optionsHidden: true,
+        sponsorVisible: false,
+        subs: [],
+        btAuth: '',
+        plan: 'fans50',
+        plans: [{label: '$3 / 6 months', value: 'fans50'}, {label: '$3 / month', value: 'fans300'}],
+        cangrps: [],
+        sponsorGroup: '',
+        sponsorGroupName: '',
+        btLoaded: false,
+        formHidden: true,
+        btSpinnerHidden: false,
+        subsVisible: false,
+        subsHidden: true,
+        settingsSpinnerHidden: true,
+        uploadedFiles: [],
+        uploadError: null,
+        currentStatus: null,
+        uploadFieldName: 'photos',
+        speedup: '1.1',
+        cursor: 0,
+        moreHidden: false,
+        doSponsor: {}
       }
-      const Posts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadMulti',
-            selected : 'tab1',
-            items : [],
-            tabsHidden: false,
-            groups: [],
-            abilities:[],
-            editHidden:true,
-            groupsHidden:false,
-            postto:[],
-            comet:'',
-            title : '',
-            image : '',
-            cgroups:[{id:1,user_id:1,name:'Admins',perms:[],members:[]},{id:2,user_id:1,name:'Group 2',perms:[],members:[]},{id:3,user_id:1,name:'Group 3',perms:[],members:[]}],
-            contacts:[{id:1,user_id:1,name:'Me',email:'',phone:'',groups:[1,2,3]}],
-            lastgroups : [],
-            saveHidden: false,
-            uploadHidden: false,
-            imgHidden: true,
-            linkVisible: false,
-            feedsVisible: false,
-            feedLink: '',
-            addFeed: '',
-            feeds: [],
-            textHidden: false,
-            audioHidden: false,
-            showAddContact: false,
-            validName: '',
-            validContact: '',
-            newName:'',
-            newContact:'',
-            newEmail:'',
-            newPhone:'',
-            doExpire: true,
-            expireHours: '24',
-            optionsBtnHidden: false,
-            optionsHidden: true,
-            sponsorVisible: false,
-            subs: [],
-            btAuth: '',
-            plan: 'fans50',
-            plans:[{label: '$3 / 6 months',value: 'fans50'},{label: '$3 / month',value: 'fans300'}],
-            cangrps: [],
-            sponsorGroup: '',
-            sponsorGroupName: '',
-            btLoaded:false,
-            formHidden: true,
-            btSpinnerHidden:false,
-            subsVisible: false,
-            subsHidden: true,
-            settingsSpinnerHidden:true,
-            uploadedFiles: [],
-            uploadError: null,
-            currentStatus: null,
-            uploadFieldName: 'photos',
-            speedup: '1.1',
-            cursor: 0,
-            moreHidden: false,
-            doSponsor: {}
+    },
+    computed: {
+      isInitial() {
+        return this.currentStatus === STATUS_INITIAL
+      },
+      isSaving() {
+        return this.currentStatus === STATUS_SAVING
+      },
+      isSuccess() {
+        return this.currentStatus === STATUS_SUCCESS
+      },
+      isFailed() {
+        return this.currentStatus === STATUS_FAILED
+      }
+    },
+    watch: {
+      '$route'(to, from) {
+        this.tabsHidden = false
+      }
+    },
+    created() {
+      if (!(window.location.href.match(/\/grp\//g) === null)) {
+        var grp = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1)
+        window.location.href = 'https://' + window.location.hostname + '/#/group/' + grp
+        return
+      }
+      if (this.$route.path == '/myContacts') {
+        router.push('/')
+        setTimeout(function (el) {
+          el.selected = 'tab2'
+        }, 300, this)
+      }
+      Vue.http.get('isAuthed').then((response) => {
+        if (parseInt(response.body) != 1) {
+          router.push('auth')
+        } else {
+          this.getPosts()
+          this.getContacts()
+          this.getSettings()
+        }
+      })
+    },
+    methods: {
+      closeSponsor() {
+        this.sponsorVisible = !this.sponsorVisible
+      },
+      showOptions() {
+        this.optionsBtnHidden = true
+        this.optionsHidden = false
+      },
+      onExpireChange() {
+        //this.doExpire = !this.doExpire
+      },
+      showSubs() {
+        this.linkVisible = false
+        this.subsVisible = true
+      },
+      showLink() {
+        if (this.subs.length < 1) {
+          if (typeof braintree !== "undefined") {
+            this.settingsSpinnerHidden = false
+            Vue.http.post('btSubs', {}).then((response) => {
+              this.subs = response.body[0]
+              this.subsHidden = false
+              this.settingsSpinnerHidden = true
+            })
           }
-        },
-        computed: {
-          isInitial() {
-            return this.currentStatus === STATUS_INITIAL
-          },
-          isSaving() {
-            return this.currentStatus === STATUS_SAVING
-          },
-          isSuccess() {
-            return this.currentStatus === STATUS_SUCCESS
-          },
-          isFailed() {
-            return this.currentStatus === STATUS_FAILED
+        }
+        this.linkVisible = true
+      },
+      aftRec(data) {
+        MintUI.Toast({
+          message: 'Click - Record 1 - and then click the floppy disk',
+          iconClass: 'icon icon-success',
+          duration: 4000
+        })
+      },
+      getSettings() {
+        Vue.http.get('getSettings').then((response) => {
+          if (!!response.body) {
+            this.feedLink = response.body.feedLink
+            this.feeds = JSON.parse(response.body.feedSubs)
           }
-        },
-        watch: {
-          '$route' (to, from) {
-            this.tabsHidden = false
+        })
+      },
+      getContacts() {
+        Vue.http.get('getContacts').then((response) => {
+          if (!!response.body) {
+            this.contacts = response.body[0]
+            this.reloadGroups()
           }
-        },
-        created() {
-          if (!(window.location.href.match(/\/grp\//g) === null)) {
-            var grp = window.location.pathname.substr(window.location.pathname.lastIndexOf('/') + 1)
-            window.location.href = 'https://' + window.location.hostname + '/#/group/' + grp
-            return
-          }
-          if (this.$route.path == '/myContacts') {
-            router.push('/')
-            setTimeout(function (el){
-              el.selected = 'tab2'
-            }, 300, this)
-          }
-          Vue.http.get('isAuthed').then((response) => {
-            if(parseInt(response.body) != 1) {
-              router.push('auth')
+        })
+        Vue.http.get('getGroups').then((response) => {
+          if (!!response.body) {
+            this.cgroups = response.body[0]
+            this.reloadGroups()
+            if (this.cgroups[this.cgroups.length - 1].name == 'Group 1') {
+              MintUI.MessageBox({
+                title: 'Looks like you are new here',
+                message: 'Would you like to set up your first photo gallery?',
+                showCancelButton: true,
+                confirmButtonText: 'Yes take me there',
+                cancelButtonText: 'No thanks'
+              }).then(action => {
+                if (action === 'confirm') {
+                  router.push('groups')
+                }
+              })
             } else {
-              this.getPosts()
-              this.getContacts()
-              this.getSettings()
+              var check = false;
+              (function (a) {
+                if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true;
+              })(navigator.userAgent || navigator.vendor || window.opera);
+              if (check === false) {
+                MintUI.Toast({
+                  message: 'Desktop computer detected - if you need to Add Photos, we suggest you use a mobile device',
+                  iconClass: 'icon icon-success',
+                  duration: 3000
+                })
+              }
+            }
+          }
+        })
+      },
+      reloadGroups() {
+        this.lastgroups = []
+        for (var i = 0; i < this.cgroups.length; i++) {
+          this.cgroups[i].members = []
+          this.cgroups[i].perms = []
+          for (var j = 0; j < this.contacts.length; j++) {
+            this.lastgroups.push([])
+            if (this.contacts[j].groups.indexOf(this.cgroups[i].id) > -1) {
+              this.cgroups[i].members.push(this.contacts[j].id)
+              this.lastgroups[j].push(this.cgroups[i].id)
+            }
+            this.cgroups[i].perms.push({label: ' ', value: this.contacts[j].id})
+          }
+        }
+      },
+      cometAdd(item) {
+        this.items.unshift(item)
+      },
+      hideTabs() {
+        this.tabsHidden = true
+      },
+      getPosts() {
+        this.spinnerHidden = false
+        Vue.http.get('getPosts' + '?cursor=' + this.cursor.toString()).then((response) => {
+          if (!!response.body) {
+            if (this.cursor > 0) {
+              for (var j = 0; j < response.body[0].length; j++) {
+                this.items.push(response.body[0][j])
+              }
+              this.moreHidden = false
+            } else {
+              this.items = response.body[0]
+            }
+            this.groups = response.body[1]
+            this.abilities = response.body[2]
+            if (this.groups.length < 2) {
+              this.groupsHidden = true
+              this.postto = [this.groups[0].value]
+            }
+            if (this.comet == '') {
+              this.comet = response.body[3]
+              //var socket = io( '/rply/' + response.body[3] )
+              //socket.on( 'new item', this.cometAdd )
+            }
+            if (this.$route.path == '/myContacts') {
+              //this.selected = 'tab2'
+            }
+            if (this.cangrps.length == 0) {
+              for (var j = 0; j < response.body[4].length; j++) {
+                var grid = response.body[4][j]
+                Vue.http.post('joinGroup', {
+                  grp: grid
+                }).then((response) => {
+                  this.cangrps.push({gname: response.body[1] + '', glink: response.body[4], guser: response.body[0]})
+                })
+              }
+            }
+          }
+          this.spinnerHidden = true
+        })
+
+      },
+      showSponsor(gr) {
+        this.sponsorGroup = gr.glink
+        this.sponsorGroupName = 'Subscribe to ' + gr.gname
+        this.sponsorVisible = true
+        if (false === this.btLoaded) {
+          Vue.http.post('btSetup', {}).then((response) => {
+            this.btAuth = response.body[0]
+            this.subs = response.body[1]
+            this.createHostedFields()
+            this.btLoaded = true
+            this.formHidden = false
+            this.btSpinnerHidden = true
+          })
+        }
+      },
+      addPosts() {
+        if (this.postto.length == 0) {
+          MintUI.Toast({
+            message: 'Select group(s) for your post',
+            iconClass: 'icon icon-success',
+            duration: 4000
+          })
+          return
+        }
+        var exp = this.expireHours
+        if (this.doExpire === false) {
+          exp = 0
+        }
+        this.spinnerHidden = false
+        this.saveHidden = true
+        this.groupsHidden = true
+        this.uploadHidden = true
+        this.imgHidden = true
+        Vue.http.post('addPosts', {
+          recips: JSON.stringify(this.postto),
+          title: this.title,
+          expirehours: exp,
+          speedup: this.speedup
+        }).then((response) => {
+          this.selected = 'tab1'
+          this.getPosts()
+          this.title = ''
+          this.image = ''
+          this.postto = []
+          this.spinnerHidden = true
+          this.saveHidden = false
+          this.uploadHidden = false
+          this.groupsHidden = false
+          this.reset()
+        })
+      },
+      createHostedFields() {
+        var postsobj = this
+        if (typeof braintree !== "undefined" && this.btAuth != '') {
+          braintree.setup(this.btAuth, "custom", {
+            id: "cardForm",
+            hostedFields: {
+              number: {
+                selector: "#card-number",
+                placeholder: "4111 1111 1111 1111"
+              },
+              cvv: {
+                selector: "#cvv",
+                placeholder: "111"
+              },
+              expirationDate: {
+                selector: "#expiration-date",
+                placeholder: "MM/YY"
+              },
+              postalCode: {
+                selector: "#postal-code",
+                placeholder: "32323"
+              },
+              styles: {
+                'input': {
+                  'font-size': '16px',
+                  'font-family': 'courier, monospace',
+                  'font-weight': 'lighter',
+                  'color': '#ccc'
+                },
+                ':focus': {
+                  'color': 'black'
+                },
+                '.valid': {
+                  'color': '#8bdda8'
+                }
+              }
+            },
+            onReady: function (integration) {
+              checkout = integration
+            },
+            onPaymentMethodReceived: function (nonce) {
+
+              Vue.http.post('doSponsor', {
+                method: JSON.stringify(nonce),
+                plan_id: postsobj.plan,
+                group_id: postsobj.sponsorGroup
+              }).then((response) => {
+                MintUI.Toast({
+                  message: 'Thank you! Bills as FLEETCODER on your Credit Card Statement.',
+                  iconClass: 'icon icon-error',
+                  duration: 2000
+                })
+              })
+              checkout.teardown(function () {
+                checkout = null
+                postsobj.createHostedFields()
+                postsobj.sponsorVisible = false
+              })
             }
           })
-        },
-        methods: {
-          closeSponsor() {
-            this.sponsorVisible = !this.sponsorVisible
-          },
-          showOptions() {
-            this.optionsBtnHidden = true
-            this.optionsHidden = false
-          },
-          onExpireChange(){
-            //this.doExpire = !this.doExpire
-          },
-          showSubs() {
-            this.linkVisible = false
-            this.subsVisible = true
-          },
-          showLink() {
-            if (this.subs.length < 1) {
-              if (typeof braintree !== "undefined") {
-                this.settingsSpinnerHidden = false
-                Vue.http.post( 'btSubs', {
-                }).then( ( response ) => {
-                  this.subs = response.body[0]
-                  this.subsHidden = false
-                  this.settingsSpinnerHidden = true
-                })
-              }
-            }
-            this.linkVisible = true
-          },
-          aftRec(data){
-            MintUI.Toast({
-              message: 'Click - Record 1 - and then click the floppy disk',
-              iconClass: 'icon icon-success',
-              duration: 4000
-            })
-          },
-          getSettings() {
-            Vue.http.get( 'getSettings').then( ( response ) => {
-              if ( !!response.body ) {
-                this.feedLink = response.body.feedLink
-                this.feeds = JSON.parse(response.body.feedSubs)
-              }
-            })
-          },
-          getContacts() {
-            Vue.http.get( 'getContacts').then( ( response ) => {
-              if ( !!response.body ) {
-                this.contacts = response.body[0]
-                this.reloadGroups()
-              }
-            })
-            Vue.http.get( 'getGroups').then( ( response ) => {
-              if ( !!response.body ) {
-                this.cgroups = response.body[0]
-                this.reloadGroups()
-                if (this.cgroups[this.cgroups.length - 1].name == 'Group 1') {
-                  MintUI.MessageBox({
-                    title: 'Looks like you are new here',
-                    message: 'Would you like to set up your first photo gallery?',
-                    showCancelButton: true,
-                    confirmButtonText: 'Yes take me there',
-                    cancelButtonText: 'No thanks'
-                  }).then(action => {
-                    if (action === 'confirm') {
-                      router.push( 'groups' )
-                    }
-                  })
-                } else {
-                  var check = false;
-                  (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
-                  if (check === false) {
-                    MintUI.Toast({
-                      message: 'Desktop computer detected - if you need to Add Photos, we suggest you use a mobile device',
-                      iconClass: 'icon icon-success',
-                      duration: 3000
-                    })
-                  }
-                }
-              }
-            })
-          },
-          reloadGroups() {
-            this.lastgroups = []
-            for (var i = 0; i < this.cgroups.length; i++) {
-              this.cgroups[i].members = []
-              this.cgroups[i].perms = []
-              for (var j = 0; j < this.contacts.length; j++) {
-                this.lastgroups.push([])
-                if (this.contacts[j].groups.indexOf(this.cgroups[i].id) > -1) {
-                  this.cgroups[i].members.push(this.contacts[j].id)
-                  this.lastgroups[j].push(this.cgroups[i].id)
-                }
-                this.cgroups[i].perms.push({label: ' ',value: this.contacts[j].id})
-              }
-            }
-          },
-          cometAdd(item) {
-            this.items.unshift(item)
-          },
-          hideTabs() {
-            this.tabsHidden = true
-          },
-          getPosts() {
-            this.spinnerHidden = false
-            Vue.http.get( 'getPosts' + '?cursor=' + this.cursor.toString()).then( ( response ) => {
-              if ( !!response.body ) {
-                if (this.cursor > 0) {
-                  for (var j = 0; j < response.body[0].length; j++) {
-                    this.items.push(response.body[0][j])
-                  }
-                  this.moreHidden = false
-                } else {
-                  this.items = response.body[0]
-                }
-                this.groups = response.body[1]
-                this.abilities = response.body[2]
-                if (this.groups.length < 2) {
-                  this.groupsHidden = true
-                  this.postto = [this.groups[0].value]
-                }
-                if (this.comet == '') {
-                  this.comet = response.body[3]
-                  //var socket = io( '/rply/' + response.body[3] )
-                  //socket.on( 'new item', this.cometAdd )
-                }
-                if (this.$route.path == '/myContacts') {
-                  //this.selected = 'tab2'
-                }
-                if (this.cangrps.length == 0) {
-                  for (var j = 0; j < response.body[4].length; j++) {
-                    var grid = response.body[4][j]
-                    Vue.http.post( 'joinGroup', {
-                      grp:grid
-                    }).then( ( response ) => {
-                      this.cangrps.push({gname:response.body[1] + '',glink:response.body[4],guser:response.body[0]})
-                    })
-                  }
-                }
-              }
-              this.spinnerHidden = true
-            })
-
-          },
-          showSponsor(gr){
-            this.sponsorGroup = gr.glink
-            this.sponsorGroupName = 'Subscribe to ' + gr.gname
-            this.sponsorVisible = true
-            if (false === this.btLoaded) {
-              Vue.http.post( 'btSetup', {
-              }).then( ( response ) => {
-                this.btAuth = response.body[0]
-                this.subs = response.body[1]
-                this.createHostedFields()
-                this.btLoaded = true
-                this.formHidden = false
-                this.btSpinnerHidden = true
-              })
-            }
-          },
-          addPosts(){
-            if (this.postto.length == 0) {
-              MintUI.Toast({
-                message: 'Select group(s) for your post',
-                iconClass: 'icon icon-success',
-                duration: 4000
-              })
-              return
-            }
-            var exp = this.expireHours
-            if (this.doExpire === false) {
-              exp = 0
-            }
-            this.spinnerHidden = false
-            this.saveHidden = true
-            this.groupsHidden = true
+        }
+      },
+      doSponsor(nonce) {
+        Vue.http.post('addPosts', {
+          recips: JSON.stringify(this.postto),
+          title: this.title,
+          expirehours: exp
+        }).then((response) => {
+          this.selected = 'tab1'
+          this.getPosts()
+          this.title = ''
+          this.image = ''
+          this.postto = []
+          this.spinnerHidden = true
+          this.saveHidden = false
+          this.uploadHidden = false
+          this.groupsHidden = false
+        })
+        onPaymentMethodReceived
+      },
+      dropFeed(idx) {
+        Vue.http.post('dropFeed', {
+          feed: idx
+        }).then((response) => {
+          this.feeds = response.body
+        })
+      },
+      doLogout() {
+        Vue.http.post('logout', {}).then((response) => {
+          window.location.href = '/'
+        })
+      },
+      doAddFeed() {
+        Vue.http.post('addFeeds', {
+          feed: this.addFeed
+        }).then((response) => {
+          this.feeds = response.body
+          this.addFeed = ''
+        })
+      },
+      showFeeds() {
+        this.linkVisible = false
+        this.feedsVisible = true
+      },
+      closeSettings() {
+        this.linkVisible = false
+      },
+      closeFeeds() {
+        this.feedsVisible = false
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
+            this.imgHidden = false
             this.uploadHidden = true
-            this.imgHidden = true
-            Vue.http.post( 'addPosts', {
-              recips:JSON.stringify(this.postto),
-              title : this.title,
-              expirehours: exp,
-              speedup: this.speedup
-            }).then( ( response ) => {
-              this.selected = 'tab1'
-              this.getPosts()
-              this.title = ''
-              this.image = ''
-              this.postto = []
-              this.spinnerHidden = true
-              this.saveHidden = false
-              this.uploadHidden = false
-              this.groupsHidden = false
-              this.reset()
-            })
-          },
-          createHostedFields() {
-            var postsobj = this
-            if (typeof braintree !== "undefined" && this.btAuth != '') {
-              braintree.setup(this.btAuth, "custom", {
-                id: "cardForm",
-                hostedFields: {
-                  number: {
-                    selector: "#card-number",
-                    placeholder: "4111 1111 1111 1111"
-                  },
-                  cvv: {
-                    selector: "#cvv",
-                    placeholder: "111"
-                  },
-                  expirationDate: {
-                    selector: "#expiration-date",
-                    placeholder: "MM/YY"
-                  },
-                  postalCode: {
-                    selector: "#postal-code",
-                    placeholder: "32323"
-                  },
-                  styles: {
-                    'input': {
-                      'font-size': '16px',
-                      'font-family': 'courier, monospace',
-                      'font-weight': 'lighter',
-                      'color': '#ccc'
-                    },
-                    ':focus': {
-                      'color': 'black'
-                    },
-                    '.valid': {
-                      'color': '#8bdda8'
-                    }
-                  }
-                },
-                onReady: function (integration) {
-                  checkout = integration
-                },
-                onPaymentMethodReceived: function (nonce) {
-
-                  Vue.http.post( 'doSponsor', {
-                    method:JSON.stringify(nonce),
-                    plan_id:postsobj.plan,
-                    group_id:postsobj.sponsorGroup
-                  }).then( ( response ) => {
-                    MintUI.Toast({
-                      message: 'Thank you! Bills as FLEETCODER on your Credit Card Statement.',
-                      iconClass: 'icon icon-error',
-                      duration: 2000
-                    })
-                  })
-                  checkout.teardown(function () {
-                    checkout = null
-                    postsobj.createHostedFields()
-                    postsobj.sponsorVisible = false
-                  })
-                }
-              })
-            }
-          },
-          doSponsor(nonce){
-            Vue.http.post( 'addPosts', {
-              recips:JSON.stringify(this.postto),
-              title : this.title,
-              expirehours: exp
-            }).then( ( response ) => {
-              this.selected = 'tab1'
-              this.getPosts()
-              this.title = ''
-              this.image = ''
-              this.postto = []
-              this.spinnerHidden = true
-              this.saveHidden = false
-              this.uploadHidden = false
-              this.groupsHidden = false
-            })
-            onPaymentMethodReceived
-          },
-          dropFeed(idx){
-            Vue.http.post( 'dropFeed', {
-              feed : idx
-            }).then( ( response ) => {
-              this.feeds = response.body
-            })
-          },
-          doLogout(){
-            Vue.http.post( 'logout', {
-            }).then( ( response ) => {
-              window.location.href = '/'
-            })
-          },
-          doAddFeed(){
-            Vue.http.post( 'addFeeds', {
-              feed : this.addFeed
-            }).then( ( response ) => {
-              this.feeds = response.body
-              this.addFeed = ''
-            })
-          },
-          showFeeds(){
-            this.linkVisible = false
-            this.feedsVisible = true
-          },
-          closeSettings(){
-            this.linkVisible = false
-          },
-          closeFeeds(){
-            this.feedsVisible = false
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
-                this.imgHidden = false
-                this.uploadHidden = true
-              }
-            })
-          },
-          dropSponsor(idx){
-            var postsobj = this
-            MintUI.MessageBox({
-              title: 'Stop Subscription',
-              message: 'Are you sure?',
-              showCancelButton: true,
-              confirmButtonText: 'Stop Subscription',
-              cancelButtonText: 'Cancel'
-            }).then(action => {
-              if (action === 'confirm') {
-                this.spinnerHidden = false
-                Vue.http.post( 'delSponsor', {
-                  id:postsobj.subs[idx].id
-                }).then( ( response ) => {
-                  this.subs.splice( idx, 1 )
-                  this.spinnerHidden = true
-                })
-              }
-            })
-          },
-          quickContact(){
-            this.showAddContact = true
-          },
-          cancelContact(){
-            this.showAddContact = false
-            this.newName = ''
-            this.newEmail = ''
-            this.newPhone = ''
-            this.newContact = ''
-          },
-          checkConName() {
-            this.validName = "success"
-          },
-          saveContact(){
-            this.spinnerHidden = false
-            Vue.http.post( 'quickAddContacts', {
-              name : this.newName,
-              email : this.newEmail,
-              phone : this.newPhone
-            }).then( ( response ) => {
-              this.newName = ''
-              this.newEmail = ''
-              this.newPhone = ''
-              this.newContact = ''
-              this.getContacts()
-              this.getPosts()
-              this.showAddContact = false
-            })
-          },
-          checkContact() {
-            this.newPhone = ''
-            this.newEmail = ''
-            this.validContact = ''
-            if (this.newContact.indexOf('@') !== -1) {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if (re.test(String(this.newContact).toLowerCase())) {
-                  this.validContact = "success"
-                  this.newEmail = this.newContact
-                } else {
-                  this.validContact = "error"
-                }
-              } else {
-                if (this.newContact.substring(0, 2) == '+1') {
-                  this.newContact = this.newContact.substring(2)
-                }
-                if (!(this.newContact.match(/\d/g) === null))
-                  if (this.newContact.match(/\d/g).length===10) {
-                    this.validContact = "success"
-                    this.newPhone = this.newContact
-                  } else {
-                    this.validContact = "error"
-                  }
-              }
-
-          },
-          setGroups() {
-            for (var j = 0; j < this.contacts.length; j++) {
-              this.contacts[j].groups = []
-              for (var i = 0; i < this.cgroups.length; i++) {
-                if (this.cgroups[i].members.indexOf(this.contacts[j].id) > -1) {
-                  if ("undefined" != typeof this.lastgroups[j]) {
-                    if(this.lastgroups[j].indexOf(this.cgroups[i].id) !== -1){
-
-                    } else {
-                      this.contacts[j].groups.push(this.cgroups[i].id)
-                      console.log(this.contacts[j].name + ' added ' + this.cgroups[i].name)
-                      Vue.http.post( 'modContactGroups', {
-                        id : this.contacts[j].id,
-                        groups : JSON.stringify(this.contacts[j].groups.concat(this.lastgroups[j]))
-                      }).then( ( response ) => {
-                        if ( !!response.body ) {
-                          this.groups = response.body[0]
-                        }
-                      })
-                    }
-                  }
-                } else {
-                  if ("undefined" != typeof this.lastgroups[j]) {
-                    if(this.lastgroups[j].indexOf(this.cgroups[i].id) !== -1){
-                      console.log(this.contacts[j].name + ' removed ' + this.cgroups[i].name)
-                      const index = this.lastgroups[j].indexOf(this.cgroups[i].id)
-                      if (index > -1) {
-                        this.lastgroups[j].splice(index, 1)
-                      }
-                      Vue.http.post( 'modContactGroups', {
-                        id : this.contacts[j].id,
-                        groups : JSON.stringify(this.lastgroups[j])
-                      }).then( ( response ) => {
-                        if ( !!response.body ) {
-                          this.groups = response.body[0]
-                        }
-                      })
-                    }
-                  }
-                }
-              }
-            }
-            this.lastgroups = []
-            for (var j = 0; j < this.contacts.length; j++) {
-              this.lastgroups.push([])
-              this.lastgroups[j] = []
-              for (var i = 0; i < this.cgroups.length; i++) {
-                if (this.cgroups[i].members.indexOf(this.contacts[j].id) > -1) {
-                  this.lastgroups[j].push(this.cgroups[i].id)
-                }
-              }
-            }
-          },
-          closeSubs(){
-            this.subsVisible = false
-          },
-          reset() {
-            this.currentStatus = STATUS_INITIAL
-            this.uploadedFiles = []
-            this.uploadError = null
-          },
-          save(formData) {
-            this.currentStatus = STATUS_SAVING
-            this.$http.post ( this.uploadTo + '?field=image', formData ).then(function (x) {
-              this.uploadedFiles = x.body[0]
-              this.currentStatus = STATUS_SUCCESS
-            })
-          },
-          filesChange(fieldName, fileList) {
-            const formData = new FormData()
-            if (!fileList.length) return
-            Array
-              .from(Array(fileList.length).keys())
-              .map(x => {
-                formData.append(fieldName, fileList[x], fileList[x].name)
-              })
-            this.save(formData)
-          },
-          moreItems(){
-            this.cursor = this.items.length
-            this.getPosts()
-          },
-          doShowSponsor(){
-            this.showSponsor(this.doSponsor)
           }
-        },
-        mounted() {
-          this.reset()
-        },
-        template: `
+        })
+      },
+      dropSponsor(idx) {
+        var postsobj = this
+        MintUI.MessageBox({
+          title: 'Stop Subscription',
+          message: 'Are you sure?',
+          showCancelButton: true,
+          confirmButtonText: 'Stop Subscription',
+          cancelButtonText: 'Cancel'
+        }).then(action => {
+          if (action === 'confirm') {
+            this.spinnerHidden = false
+            Vue.http.post('delSponsor', {
+              id: postsobj.subs[idx].id
+            }).then((response) => {
+              this.subs.splice(idx, 1)
+              this.spinnerHidden = true
+            })
+          }
+        })
+      },
+      quickContact() {
+        this.showAddContact = true
+      },
+      cancelContact() {
+        this.showAddContact = false
+        this.newName = ''
+        this.newEmail = ''
+        this.newPhone = ''
+        this.newContact = ''
+      },
+      checkConName() {
+        this.validName = "success"
+      },
+      saveContact() {
+        this.spinnerHidden = false
+        Vue.http.post('quickAddContacts', {
+          name: this.newName,
+          email: this.newEmail,
+          phone: this.newPhone
+        }).then((response) => {
+          this.newName = ''
+          this.newEmail = ''
+          this.newPhone = ''
+          this.newContact = ''
+          this.getContacts()
+          this.getPosts()
+          this.showAddContact = false
+        })
+      },
+      checkContact() {
+        this.newPhone = ''
+        this.newEmail = ''
+        this.validContact = ''
+        if (this.newContact.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.newContact).toLowerCase())) {
+            this.validContact = "success"
+            this.newEmail = this.newContact
+          } else {
+            this.validContact = "error"
+          }
+        } else {
+          if (this.newContact.substring(0, 2) == '+1') {
+            this.newContact = this.newContact.substring(2)
+          }
+          if (!(this.newContact.match(/\d/g) === null))
+            if (this.newContact.match(/\d/g).length === 10) {
+              this.validContact = "success"
+              this.newPhone = this.newContact
+            } else {
+              this.validContact = "error"
+            }
+        }
+
+      },
+      setGroups() {
+        for (var j = 0; j < this.contacts.length; j++) {
+          this.contacts[j].groups = []
+          for (var i = 0; i < this.cgroups.length; i++) {
+            if (this.cgroups[i].members.indexOf(this.contacts[j].id) > -1) {
+              if ("undefined" != typeof this.lastgroups[j]) {
+                if (this.lastgroups[j].indexOf(this.cgroups[i].id) !== -1) {
+
+                } else {
+                  this.contacts[j].groups.push(this.cgroups[i].id)
+                  console.log(this.contacts[j].name + ' added ' + this.cgroups[i].name)
+                  Vue.http.post('modContactGroups', {
+                    id: this.contacts[j].id,
+                    groups: JSON.stringify(this.contacts[j].groups.concat(this.lastgroups[j]))
+                  }).then((response) => {
+                    if (!!response.body) {
+                      this.groups = response.body[0]
+                    }
+                  })
+                }
+              }
+            } else {
+              if ("undefined" != typeof this.lastgroups[j]) {
+                if (this.lastgroups[j].indexOf(this.cgroups[i].id) !== -1) {
+                  console.log(this.contacts[j].name + ' removed ' + this.cgroups[i].name)
+                  const index = this.lastgroups[j].indexOf(this.cgroups[i].id)
+                  if (index > -1) {
+                    this.lastgroups[j].splice(index, 1)
+                  }
+                  Vue.http.post('modContactGroups', {
+                    id: this.contacts[j].id,
+                    groups: JSON.stringify(this.lastgroups[j])
+                  }).then((response) => {
+                    if (!!response.body) {
+                      this.groups = response.body[0]
+                    }
+                  })
+                }
+              }
+            }
+          }
+        }
+        this.lastgroups = []
+        for (var j = 0; j < this.contacts.length; j++) {
+          this.lastgroups.push([])
+          this.lastgroups[j] = []
+          for (var i = 0; i < this.cgroups.length; i++) {
+            if (this.cgroups[i].members.indexOf(this.contacts[j].id) > -1) {
+              this.lastgroups[j].push(this.cgroups[i].id)
+            }
+          }
+        }
+      },
+      closeSubs() {
+        this.subsVisible = false
+      },
+      reset() {
+        this.currentStatus = STATUS_INITIAL
+        this.uploadedFiles = []
+        this.uploadError = null
+      },
+      save(formData) {
+        this.currentStatus = STATUS_SAVING
+        this.$http.post(this.uploadTo + '?field=image', formData).then(function (x) {
+          this.uploadedFiles = x.body[0]
+          this.currentStatus = STATUS_SUCCESS
+        })
+      },
+      filesChange(fieldName, fileList) {
+        const formData = new FormData()
+        if (!fileList.length) return
+        Array
+          .from(Array(fileList.length).keys())
+          .map(x => {
+            formData.append(fieldName, fileList[x], fileList[x].name)
+          })
+        this.save(formData)
+      },
+      moreItems() {
+        this.cursor = this.items.length
+        this.getPosts()
+      },
+      doShowSponsor() {
+        this.showSponsor(this.doSponsor)
+      }
+    },
+    mounted() {
+      this.reset()
+    },
+    template: `
           <div>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
             <mt-tab-container v-model="selected">
@@ -1639,26 +1686,26 @@
             </mt-popup>
           
           </div>`
+  }
+  const listContacts = {
+    data() {
+      return {
+        spinnerHidden: true
       }
-      const listContacts = {
-        data() {
-          return {
-            spinnerHidden : true
-          }
-        },
-        props: { items : Array, editHidden: Boolean },
-        methods: {
-          delContacts( id, idx ){
-            this.spinnerHidden = false
-            Vue.http.post( 'delContacts', {
-              id:id
-            }).then( ( response ) => {
-              this.items.splice( idx, 1 )
-              this.spinnerHidden = true
-            })
-          }
-        },
-        template: `
+    },
+    props: {items: Array, editHidden: Boolean},
+    methods: {
+      delContacts(id, idx) {
+        this.spinnerHidden = false
+        Vue.http.post('delContacts', {
+          id: id
+        }).then((response) => {
+          this.items.splice(idx, 1)
+          this.spinnerHidden = true
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="Contacts">
               <router-link to="/myContacts" slot="left">
@@ -1675,42 +1722,42 @@
             ]">
             </mt-cell-swipe>
           </div>`
+  }
+  const showContacts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        idx: this.$route.params.idx,
+        id: 0,
+        name: '',
+        email: '',
+        phone: ''
       }
-      const showContacts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            idx: this.$route.params.idx,
-            id : 0,
-            name : '',
-            email : '',
-            phone : ''
-          }
-        },
-        props: { items : Array },
-        created() {
-          if (this.items.length == 0) {
-            this.$emit('on-update-list')
-            setTimeout( function (self) {
-              self.setData()
-            }, 2000, this)
-          } else {
-            this.setData()
-          }
-        },
-        methods: {
-          setData(){
-            this.id = this.items[ this.idx ].id
-            this.name = this.items[ this.idx ].name
-            this.email = this.items[ this.idx ].email
-            this.phone = this.items[ this.idx ].phone
-            this.$emit('on-tabs-hidden')
-          },
-          goEdit(idx) {
-            router.push( '/modContacts/' + idx )
-          }
-        },
-        template: `
+    },
+    props: {items: Array},
+    created() {
+      if (this.items.length == 0) {
+        this.$emit('on-update-list')
+        setTimeout(function (self) {
+          self.setData()
+        }, 2000, this)
+      } else {
+        this.setData()
+      }
+    },
+    methods: {
+      setData() {
+        this.id = this.items[this.idx].id
+        this.name = this.items[this.idx].name
+        this.email = this.items[this.idx].email
+        this.phone = this.items[this.idx].phone
+        this.$emit('on-tabs-hidden')
+      },
+      goEdit(idx) {
+        router.push('/modContacts/' + idx)
+      }
+    },
+    template: `
           <div>
             <mt-header title="Contacts">
               <router-link to="/contacts" slot="left">
@@ -1723,50 +1770,50 @@
             <mt-cell title="Phone:" :value="phone"></mt-cell>
             <mt-button size="large" v-on:click="goEdit(idx)">Settings</mt-button>
           </div>`
+  }
+  const modContacts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadFile',
+        idx: this.$route.params.idx,
+        id: 0,
+        name: '',
+        email: '',
+        phone: ''
       }
-      const modContacts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadFile',
-            idx: this.$route.params.idx,
-            id : 0,
-            name : '',
-            email : '',
-            phone : ''
-          }
-        },
-        props: { items : Array },
-        created() {
-          this.id = this.items[ this.idx ].id
-          this.name = this.items[ this.idx ].name
-          this.email = this.items[ this.idx ].email
-          this.phone = this.items[ this.idx ].phone
+    },
+    props: {items: Array},
+    created() {
+      this.id = this.items[this.idx].id
+      this.name = this.items[this.idx].name
+      this.email = this.items[this.idx].email
+      this.phone = this.items[this.idx].phone
 
-          this.$emit('on-tabs-hidden')
-        },
-        methods: {
-          modContacts(){
-            this.spinnerHidden = false
-            Vue.http.post( 'modContacts', {
-              id : this.id,
-              name : this.name,
-              email : this.email,
-              phone : this.phone
-            }).then( ( response ) => {
-              this.$emit('on-update-list')
-              router.push( '/' )
-            })
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
-              }
-            })
+      this.$emit('on-tabs-hidden')
+    },
+    methods: {
+      modContacts() {
+        this.spinnerHidden = false
+        Vue.http.post('modContacts', {
+          id: this.id,
+          name: this.name,
+          email: this.email,
+          phone: this.phone
+        }).then((response) => {
+          this.$emit('on-update-list')
+          router.push('/')
+        })
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
           }
-        },
-        template: `
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="Contacts">
               <router-link :to="'/showContacts/' + idx" slot="left">
@@ -1779,117 +1826,117 @@
             <mt-field label="Phone:" placeholder="Phone..(optional)" v-model="phone"></mt-field>
             <mt-button v-on:click="modContacts()" size="large">Save</mt-button>
           </div>`
+  }
+  const Contacts = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadFile',
+        selected: 'tab1',
+        items: [],
+        tabsHidden: false,
+        groups: [],
+        abilities: [],
+        editHidden: true,
+        groupsHidden: false,
+        postto: [],
+        comet: '',
+        name: '',
+        email: '',
+        phone: '',
+        validEmail: '',
+        validPhone: ''
       }
-      const Contacts = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadFile',
-            selected : 'tab1',
-            items : [],
-            tabsHidden: false,
-            groups: [],
-            abilities:[],
-            editHidden:true,
-            groupsHidden:false,
-            postto:[],
-            comet:'',
-            name : '',
-            email : '',
-            phone : '',
-            validEmail: '',
-            validPhone: ''
+    },
+    watch: {
+      '$route'(to, from) {
+        this.tabsHidden = false
+      }
+    },
+    components: {
+      'show-contacts': showContacts
+    },
+    created() {
+      this.getContacts()
+    },
+    methods: {
+      showAddContactForm() {
+        this.selected = "tab2"
+      },
+      hideAddContactForm() {
+        this.selected = "tab1"
+      },
+      checkEmail() {
+        this.validEmail = ''
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (re.test(String(this.email).toLowerCase())) {
+          this.validEmail = "success"
+        } else {
+          this.validEmail = "error"
+        }
+      },
+      checkPhone() {
+        this.validPhone = ''
+        if (this.phone.match(/\d/g).length === 10) {
+          this.validPhone = "success"
+        } else {
+          this.validPhone = "error"
+        }
+      },
+      cometAdd(item) {
+        this.items.unshift(item)
+      },
+      hideTabs() {
+        this.tabsHidden = true
+      },
+      getContacts() {
+        this.spinnerHidden = false
+        Vue.http.get('getContacts').then((response) => {
+          if (!!response.body) {
+            this.items = response.body[0]
+            this.groups = response.body[1]
+            this.abilities = response.body[2]
+            if (this.abilities.indexOf("modSource Code") > -1) {
+              this.editHidden = false
+            }
+            if (this.groups.length < 2) {
+              this.groupsHidden = true
+              this.postto = [this.groups[0].value]
+            }
+            if (this.comet == '') {
+              this.comet = response.body[3]
+              //var socket = io( '/rply/' + response.body[3] )
+              //socket.on( 'new item', this.cometAdd )
+            }
           }
-        },
-        watch: {
-          '$route' (to, from) {
-            this.tabsHidden = false
-          }
-        },
-        components:{
-          'show-contacts' : showContacts
-        },
-        created() {
+          this.spinnerHidden = true
+        })
+      },
+      addContacts() {
+        this.spinnerHidden = false
+        Vue.http.post('addContacts', {
+          recips: JSON.stringify(this.postto),
+          name: this.name,
+          email: this.email,
+          phone: this.phone
+        }).then((response) => {
+          this.selected = 'tab1'
           this.getContacts()
-        },
-        methods: {
-          showAddContactForm() {
-            this.selected = "tab2"
-          },
-          hideAddContactForm() {
-            this.selected = "tab1"
-          },
-          checkEmail() {
-            this.validEmail = ''
-            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (re.test(String(this.email).toLowerCase())) {
-              this.validEmail = "success"
-            } else {
-              this.validEmail = "error"
-            }
-          },
-          checkPhone() {
-            this.validPhone = ''
-            if (this.phone.match(/\d/g).length===10) {
-              this.validPhone = "success"
-            } else {
-              this.validPhone = "error"
-            }
-          },
-          cometAdd(item) {
-            this.items.unshift(item)
-          },
-          hideTabs() {
-            this.tabsHidden = true
-          },
-          getContacts() {
-            this.spinnerHidden = false
-            Vue.http.get( 'getContacts').then( ( response ) => {
-              if ( !!response.body ) {
-                this.items = response.body[0]
-                this.groups = response.body[1]
-                this.abilities = response.body[2]
-                if (this.abilities.indexOf("modSource Code") > -1) {
-                  this.editHidden = false
-                }
-                if (this.groups.length < 2) {
-                  this.groupsHidden = true
-                  this.postto = [this.groups[0].value]
-                }
-                if (this.comet == '') {
-                  this.comet = response.body[3]
-                  //var socket = io( '/rply/' + response.body[3] )
-                  //socket.on( 'new item', this.cometAdd )
-                }
-              }
-              this.spinnerHidden = true
-            })
-          },
-          addContacts(){
-            this.spinnerHidden = false
-            Vue.http.post( 'addContacts', {
-              recips:JSON.stringify(this.postto),
-              name : this.name,
-              email : this.email,
-              phone : this.phone
-            }).then( ( response ) => {
-              this.selected = 'tab1'
-              this.getContacts()
-              this.name = ''
-              this.email = ''
-              this.phone = ''
-              Posts.getContacts()
-            })
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
-              }
-            })
+          this.name = ''
+          this.email = ''
+          this.phone = ''
+          Posts.getContacts()
+        })
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
           }
-        },
-        template: `
+        })
+      }
+    },
+    template: `
           <div>
 
             <mt-tab-container v-model="selected">
@@ -1916,26 +1963,26 @@
             </mt-tab-container>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
           </div>`
+  }
+  const listGroups = {
+    data() {
+      return {
+        spinnerHidden: true
       }
-      const listGroups = {
-        data() {
-          return {
-            spinnerHidden : true
-          }
-        },
-        props: { items : Array, editHidden: Boolean },
-        methods: {
-          delGroups( id, idx ){
-            this.spinnerHidden = false
-            Vue.http.post( 'delGroups', {
-              id:id
-            }).then( ( response ) => {
-              this.items.splice( idx, 1 )
-              this.spinnerHidden = true
-            })
-          }
-        },
-        template: `
+    },
+    props: {items: Array, editHidden: Boolean},
+    methods: {
+      delGroups(id, idx) {
+        this.spinnerHidden = false
+        Vue.http.post('delGroups', {
+          id: id
+        }).then((response) => {
+          this.items.splice(idx, 1)
+          this.spinnerHidden = true
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="Groups">
               <router-link to="/myContacts" slot="left">
@@ -1952,41 +1999,41 @@
             ]">
             </mt-cell-swipe>
           </div>`
+  }
+  const showGroups = {
+    data() {
+      return {
+        spinnerHidden: true,
+        idx: this.$route.params.idx,
+        id: 0,
+        name: '',
+        image: ''
       }
-      const showGroups = {
-        data() {
-          return {
-            spinnerHidden : true,
-            idx: this.$route.params.idx,
-            id : 0,
-            name : '',
-            image : ''
-          }
-        },
-        props: { items : Array },
-        created() {
-          if (this.items.length == 0) {
-            this.$emit('on-update-list')
-            setTimeout( function (self) {
-              self.setData()
-            }, 2000, this)
-          } else {
-            this.setData()
-          }
-        },
-        methods: {
-          setData(){
-            console.log(this.items[ this.idx ])
-            this.id = this.items[ this.idx ].id
-            this.name = this.items[ this.idx ].name
-            this.image = this.items[ this.idx ].image
-            this.$emit('on-tabs-hidden')
-          },
-          goEdit(idx) {
-            router.push( '/modGroups/' + idx )
-          }
-        },
-        template: `
+    },
+    props: {items: Array},
+    created() {
+      if (this.items.length == 0) {
+        this.$emit('on-update-list')
+        setTimeout(function (self) {
+          self.setData()
+        }, 2000, this)
+      } else {
+        this.setData()
+      }
+    },
+    methods: {
+      setData() {
+        console.log(this.items[this.idx])
+        this.id = this.items[this.idx].id
+        this.name = this.items[this.idx].name
+        this.image = this.items[this.idx].image
+        this.$emit('on-tabs-hidden')
+      },
+      goEdit(idx) {
+        router.push('/modGroups/' + idx)
+      }
+    },
+    template: `
           <div>
             <mt-header title="Groups">
               <router-link to="/groups" slot="left">
@@ -2002,156 +2049,156 @@
             </mt-cell>
             <mt-button size="large" v-on:click="goEdit(idx)">Settings</mt-button>
           </div>`
+  }
+  const modGroups = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadFile',
+        idx: this.$route.params.idx,
+        id: 0,
+        name: '',
+        image: '',
+        showAddContact: false,
+        validName: '',
+        validContact: '',
+        newName: '',
+        newContact: '',
+        newEmail: '',
+        newPhone: '',
+        showShareGroup: false,
+        groupLink: '',
+        maxRes: '2000',
+        doScale: true,
+        blockDownloads: true,
+        allowPosts: false
       }
-      const modGroups = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadFile',
-            idx: this.$route.params.idx,
-            id : 0,
-            name : '',
-            image : '',
-            showAddContact: false,
-            validName: '',
-            validContact: '',
-            newName:'',
-            newContact:'',
-            newEmail:'',
-            newPhone:'',
-            showShareGroup: false,
-            groupLink: '',
-            maxRes: '2000',
-            doScale: true,
-            blockDownloads: true,
-            allowPosts: false
+    },
+    props: {items: Array},
+    created() {
+      this.id = this.items[this.idx].id
+      this.name = this.items[this.idx].name
+      this.image = this.items[this.idx].image
+      if (this.items[this.idx].blockDownloads == '0') {
+        this.blockDownloads = false
+      }
+      if (this.items[this.idx].allowPosts == '1') {
+        this.allowPosts = true
+      }
+      var maxres = parseInt(this.items[this.idx].maxres)
+      if (maxres > 0) {
+        this.maxRes = this.items[this.idx].maxres
+      }
+      if (maxres === 0) {
+        this.doScale = false
+      }
+      this.$emit('on-tabs-hidden')
+    },
+    methods: {
+      closeShareGroup() {
+        router.push('/')
+      },
+      checkContact() {
+        this.newPhone = ''
+        this.newEmail = ''
+        this.validContact = ''
+        if (this.newContact.indexOf('@') !== -1) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (re.test(String(this.newContact).toLowerCase())) {
+            this.validContact = "success"
+            this.newEmail = this.newContact
+          } else {
+            this.validContact = "error"
           }
-        },
-        props: { items : Array },
-        created() {
-          this.id = this.items[ this.idx ].id
-          this.name = this.items[ this.idx ].name
-          this.image = this.items[ this.idx ].image
-          if (this.items[ this.idx ].blockDownloads == '0') {
-            this.blockDownloads = false
+        } else {
+          if (this.newContact.substring(0, 2) == '+1') {
+            this.newContact = this.newContact.substring(2)
           }
-          if (this.items[ this.idx ].allowPosts == '1') {
-            this.allowPosts = true
-          }
-          var maxres = parseInt(this.items[ this.idx ].maxres)
-          if (maxres > 0) {
-            this.maxRes = this.items[ this.idx ].maxres
-          }
-          if (maxres === 0) {
-            this.doScale = false
-          }
-          this.$emit('on-tabs-hidden')
-        },
-        methods: {
-          closeShareGroup(){
-            router.push( '/' )
-          },
-          checkContact() {
-            this.newPhone = ''
-            this.newEmail = ''
-            this.validContact = ''
-            if (this.newContact.indexOf('@') !== -1) {
-                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if (re.test(String(this.newContact).toLowerCase())) {
-                  this.validContact = "success"
-                  this.newEmail = this.newContact
-                } else {
-                  this.validContact = "error"
-                }
-              } else {
-                if (this.newContact.substring(0, 2) == '+1') {
-                  this.newContact = this.newContact.substring(2)
-                }
-                if (!(this.newContact.match(/\d/g) === null))
-                  if (this.newContact.match(/\d/g).length===10) {
-                    this.validContact = "success"
-                    this.newPhone = this.newContact
-                  } else {
-                    this.validContact = "error"
-                  }
-              }
+          if (!(this.newContact.match(/\d/g) === null))
+            if (this.newContact.match(/\d/g).length === 10) {
+              this.validContact = "success"
+              this.newPhone = this.newContact
+            } else {
+              this.validContact = "error"
+            }
+        }
 
-          },
-          checkConName() {
-            this.validName = "success"
-          },
-          cancelContact(){
-            this.showAddContact = false
-            this.newName = ''
-            this.newEmail = ''
-            this.newPhone = ''
-            this.newContact = ''
-          },
-          quickContact(){
-            this.showAddContact = true
-          },
-          saveContact(){
-            this.spinnerHidden = false
-            Vue.http.post( 'quickAddContacts', {
-              name : this.newName,
-              email : this.newEmail,
-              phone : this.newPhone,
-              groups : JSON.stringify([this.id])
-            }).then( ( response ) => {
-              this.newName = ''
-              this.newEmail = ''
-              this.newPhone = ''
-              this.newContact = ''
-              this.showAddContact = false
-            })
-          },
-          modGroups(){
-            this.spinnerHidden = false
-            if (this.name == 'Group 1') {
-              MintUI.Toast({
-                message: 'Error, choose a different group name',
-                iconClass: 'icon icon-error',
-                duration: 2000
-              })
-              return
-            }
-            var exp = this.expireHours
-            if (this.doExpire === false) {
-              exp = 0
-            }
+      },
+      checkConName() {
+        this.validName = "success"
+      },
+      cancelContact() {
+        this.showAddContact = false
+        this.newName = ''
+        this.newEmail = ''
+        this.newPhone = ''
+        this.newContact = ''
+      },
+      quickContact() {
+        this.showAddContact = true
+      },
+      saveContact() {
+        this.spinnerHidden = false
+        Vue.http.post('quickAddContacts', {
+          name: this.newName,
+          email: this.newEmail,
+          phone: this.newPhone,
+          groups: JSON.stringify([this.id])
+        }).then((response) => {
+          this.newName = ''
+          this.newEmail = ''
+          this.newPhone = ''
+          this.newContact = ''
+          this.showAddContact = false
+        })
+      },
+      modGroups() {
+        this.spinnerHidden = false
+        if (this.name == 'Group 1') {
+          MintUI.Toast({
+            message: 'Error, choose a different group name',
+            iconClass: 'icon icon-error',
+            duration: 2000
+          })
+          return
+        }
+        var exp = this.expireHours
+        if (this.doExpire === false) {
+          exp = 0
+        }
 
-            var sca = this.maxRes
-            if (this.doScale === false) {
-              sca = 0
-            }
-            Vue.http.post( 'modGroups', {
-              id : this.id,
-              name : this.name,
-              maxres : sca,
-              allowPosts : this.allowPosts,
-              blockDownloads: this.blockDownloads
-            }).then( ( response ) => {
-              this.$emit('on-update-list')
-              this.showShareGroup = true
-              this.groupLink = response.body
-            })
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
-              }
-            })
-          },
-          comingSoon(){
-            MintUI.Toast({
-              message: 'Sorry, this setting cannot be changed at this time',
-              iconClass: 'icon icon-error',
-              duration: 2000
-            })
+        var sca = this.maxRes
+        if (this.doScale === false) {
+          sca = 0
+        }
+        Vue.http.post('modGroups', {
+          id: this.id,
+          name: this.name,
+          maxres: sca,
+          allowPosts: this.allowPosts,
+          blockDownloads: this.blockDownloads
+        }).then((response) => {
+          this.$emit('on-update-list')
+          this.showShareGroup = true
+          this.groupLink = response.body
+        })
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
           }
-        },
-        template: `
+        })
+      },
+      comingSoon() {
+        MintUI.Toast({
+          message: 'Sorry, this setting cannot be changed at this time',
+          iconClass: 'icon icon-error',
+          duration: 2000
+        })
+      }
+    },
+    template: `
           <div>
             <mt-header title="Groups">
               <router-link :to="'/showGroups/' + idx" slot="left">
@@ -2178,112 +2225,111 @@
               <mt-button v-on:click="closeShareGroup()">Close</mt-button>
             </mt-popup>
           </div>`
+  }
+  const Groups = {
+    data() {
+      return {
+        spinnerHidden: true,
+        uploadTo: 'uploadFile',
+        selected: 'tab1',
+        items: [],
+        tabsHidden: false,
+        groups: [],
+        abilities: [],
+        editHidden: true,
+        groupsHidden: false,
+        postto: [],
+        comet: '',
+        name: '',
+        image: ''
       }
-      const Groups = {
-        data() {
-          return {
-            spinnerHidden : true,
-            uploadTo : 'uploadFile',
-            selected : 'tab1',
-            items : [],
-            tabsHidden: false,
-            groups: [],
-            abilities:[],
-            editHidden:true,
-            groupsHidden:false,
-            postto:[],
-            comet:'',
-            name : '',
-            image: ''
-          }
-        },
-        watch: {
-          '$route' (to, from) {
-            this.tabsHidden = false
-          }
-        },
-        components:{
-          'show-groups' : showGroups
-        },
-        created() {
-          this.getGroups()
-        },
-        methods: {
-          showAddGroupForm() {
-            this.selected = "tab2"
-          },
-          hideAddGroupForm() {
-            this.selected = "tab1"
-          },
-          cometAdd(item) {
-            this.items.unshift(item)
-          },
-          hideTabs() {
-            console.log("hello")
-            this.tabsHidden = true
-          },
-          getGroups() {
-            this.spinnerHidden = false
-            Vue.http.get( 'getGroups').then( ( response ) => {
-              if ( !!response.body ) {
-                this.items = response.body[0]
-                this.groups = response.body[1]
-                this.abilities = response.body[2]
-                if (this.abilities.indexOf("modSource Code") > -1) {
-                  this.editHidden = false
-                }
-                if (this.groups.length < 2) {
-                  this.groupsHidden = true
-                  this.postto = [this.groups[0].value]
-                }
-                if (this.comet == '') {
-                  this.comet = response.body[3]
-                  //var socket = io( '/rplygroups/' + response.body[3] )
-                  //socket.on( 'new item', this.cometAdd )
-                }
-                for (var i = 0; i < this.items.length; i++) {
-                  if ("undefined" == typeof this.items[i].image) {
-                    this.items[i].image = ''
-                  }
-                }
-                if (this.items[this.items.length - 1].name == 'Group 1') {
-                  router.push('/modGroups/' + (this.items.length - 1))
-                }
-              }
-              this.spinnerHidden = true
-            })
-          },
-          addGroups(){
-            this.spinnerHidden = false
-            if (this.name == 'Group 1') {
-              MintUI.Toast({
-                message: 'Error, choose a different group name',
-                iconClass: 'icon icon-error',
-                duration: 2000
-              })
-              return
+    },
+    watch: {
+      '$route'(to, from) {
+        this.tabsHidden = false
+      }
+    },
+    components: {
+      'show-groups': showGroups
+    },
+    created() {
+      this.getGroups()
+    },
+    methods: {
+      showAddGroupForm() {
+        this.selected = "tab2"
+      },
+      hideAddGroupForm() {
+        this.selected = "tab1"
+      },
+      cometAdd(item) {
+        this.items.unshift(item)
+      },
+      hideTabs() {
+        console.log("hello")
+        this.tabsHidden = true
+      },
+      getGroups() {
+        this.spinnerHidden = false
+        Vue.http.get('getGroups').then((response) => {
+          if (!!response.body) {
+            this.items = response.body[0]
+            this.groups = response.body[1]
+            this.abilities = response.body[2]
+            if (this.abilities.indexOf("modSource Code") > -1) {
+              this.editHidden = false
             }
-            Vue.http.post( 'addGroups', {
-              recips:JSON.stringify(this.postto),
-              name : this.name
-            }).then( ( response ) => {
-              this.selected = 'tab1'
-              this.getGroups()
-              this.name = ''
-              Posts.getContacts()
-            })
-          },
-          stagedUpload(field){
-            Vue.http.get( 'stagedFile?field=' + field ).then( ( response ) => {
-              if ( !!response.body ) {
-                this[field] = response.body
+            if (this.groups.length < 2) {
+              this.groupsHidden = true
+              this.postto = [this.groups[0].value]
+            }
+            if (this.comet == '') {
+              this.comet = response.body[3]
+              //var socket = io( '/rplygroups/' + response.body[3] )
+              //socket.on( 'new item', this.cometAdd )
+            }
+            for (var i = 0; i < this.items.length; i++) {
+              if ("undefined" == typeof this.items[i].image) {
+                this.items[i].image = ''
               }
-            })
+            }
+            if (this.items[this.items.length - 1].name == 'Group 1') {
+              router.push('/modGroups/' + (this.items.length - 1))
+            }
           }
-        },
-        template: `
+          this.spinnerHidden = true
+        })
+      },
+      addGroups() {
+        this.spinnerHidden = false
+        if (this.name == 'Group 1') {
+          MintUI.Toast({
+            message: 'Error, choose a different group name',
+            iconClass: 'icon icon-error',
+            duration: 2000
+          })
+          return
+        }
+        Vue.http.post('addGroups', {
+          recips: JSON.stringify(this.postto),
+          name: this.name
+        }).then((response) => {
+          this.selected = 'tab1'
+          this.getGroups()
+          this.name = ''
+          Posts.getContacts()
+        })
+      },
+      stagedUpload(field) {
+        Vue.http.get('stagedFile?field=' + field).then((response) => {
+          if (!!response.body) {
+            this[field] = response.body
+          }
+        })
+      }
+    },
+    template: `
           <div>
-
             <mt-tab-container v-model="selected">
               <mt-tab-container-item id="tab1">
                 <router-view v-bind:items="items" v-bind:editHidden="editHidden" @on-update-list="getGroups" @on-tabs-hidden="hideTabs"  />
@@ -2308,63 +2354,67 @@
             </mt-tab-container>
             <mt-spinner v-bind:class="{'is-hidden':spinnerHidden}" type="snake"></mt-spinner>
           </div>`
+  }
+  const router = new VueRouter({
+    routes: [
+      {
+        path: '', component: Posts,
+        children: [{
+          path: 'showPosts/:idx',
+          component: showPosts
+        }, {
+          path: 'modPosts/:idx',
+          component: modPosts
+        }, {
+          path: 'myContacts',
+          component: listPosts
+        }, {
+          path: '',
+          component: listPosts
+        }]
+      }, {
+        path: '/groups', component: Groups,
+        children: [{
+          path: '/showGroups/:idx',
+          component: showGroups
+        }, {
+          path: '/modGroups/:idx',
+          component: modGroups
+        }, {
+          path: '',
+          component: listGroups
+        }]
+      }, {
+        path: '/contacts', component: Contacts,
+        children: [{
+          path: '/showContacts/:idx',
+          component: showContacts
+        }, {
+          path: '/modContacts/:idx',
+          component: modContacts
+        }, {
+          path: '',
+          component: listContacts
+        }]
+      }, {
+        path: '/connect/:code',
+        component: connect
+      }, {
+        path: '/group/:grp',
+        component: GroupPage
+      }, {
+        path: '/auth',
+        component: freeTrial
       }
-      const router = new VueRouter({routes:[
-        { path: '', component: Posts,
-          children: [{
-            path: 'showPosts/:idx',
-            component: showPosts
-        },{
-            path: 'modPosts/:idx',
-            component: modPosts
-        },{
-            path: 'myContacts',
-            component: listPosts
-        },{
-            path: '',
-            component: listPosts
-        }]},{
-          path: '/groups', component: Groups,
-                    children: [{
-                      path: '/showGroups/:idx',
-                      component: showGroups
-                  },{
-                      path: '/modGroups/:idx',
-                      component: modGroups
-                  },{
-                      path: '',
-                      component: listGroups
-                  }]
-        },{
-          path: '/contacts', component: Contacts,
-                    children: [{
-                      path: '/showContacts/:idx',
-                      component: showContacts
-                  },{
-                      path: '/modContacts/:idx',
-                      component: modContacts
-                  },{
-                      path: '',
-                      component: listContacts
-                  }]
-        },{
-            path: '/connect/:code',
-            component: connect
-        },{
-            path: '/group/:grp',
-            component: GroupPage
-        },{
-            path: '/auth',
-            component: freeTrial
-        }
-      ]})
-      const vueApp = new Vue({
-        router
-      }).$mount('#app')
-    </script>
+    ]
+  })
+  const vueApp = new Vue({
+    router
+  }).$mount('#app')
+</script>
 
-  </body>
-  <script type="python" id="server">
+</body>
+<script type="python" id="server">
 
 
 @app.route('/delSponsor', methods=['GET','POST'])
@@ -3645,6 +3695,7 @@ abilities = [
   }
 ]
 
-  </script>
+
+</script>
 </html>
 
